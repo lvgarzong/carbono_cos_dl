@@ -1,0 +1,11 @@
+2026-06-08 21:15:08 | INFO    | ensemble | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260608_211508.log
+2026-06-08 21:15:08 | INFO    | ensemble | Dataset NIR cargado desde cache (781 muestras)
+2026-06-08 21:15:08 | INFO    | ensemble | Seleccion de bandas: 150 bandas VIP (de 486)
+2026-06-08 21:15:08 | INFO    | ensemble | Ensamble en NIR/sg1/median | 150 bandas VIP (de 486) | miembros=1 modelos x 3 semillas
+2026-06-08 21:15:20 | INFO    | ensemble |   miembro MLP_seed0 -> R2=0.369 RMSE=0.508 (75 ep)
+2026-06-08 21:15:32 | INFO    | ensemble |   miembro MLP_seed42 -> R2=0.338 RMSE=0.521 (100 ep)
+2026-06-08 21:15:45 | INFO    | ensemble |   miembro MLP_seed707 -> R2=0.398 RMSE=0.497 (110 ep)
+2026-06-08 21:15:45 | INFO    | ensemble | ==================================================
+2026-06-08 21:15:45 | INFO    | ensemble | ENSAMBLE (3 miembros) -> R2=0.384 RMSE=0.502 RPD=1.27 RPIQ=1.65
+2026-06-08 21:15:45 | INFO    | ensemble | ENSAMBLE solo MLP -> R2=0.384 RMSE=0.502
+2026-06-08 21:15:45 | INFO    | ensemble | Resumen -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\ensemble_NIR_sg1_bandsel | filas de ensamble anexadas a all_results.csv

@@ -1,0 +1,36 @@
+Busqueda 2 sobre TODAS: 781 muestras
+BASE: {'prep': 'sg1_snv', 'arch': (256, 128, 64), 'dropout': 0.4, 'bn': True, 'l2': 0.001, 'lr': 0.0005, 'opt': 'nadam', 'act': 'relu', 'target': 'zscore', 'pca': 0, 'batch': 32, 'epochs': 200}
+  BASE (ref)                  : R2=0.600+-0.058 RPD=1.59
+--- BatchNorm ---
+  bn=True                     : R2=0.600+-0.058 RPD=1.59
+  bn=False                    : R2=0.596+-0.056 RPD=1.58
+--- Learning rate ---
+  lr=0.001                    : R2=0.597+-0.062 RPD=1.59
+  lr=0.0005                   : R2=0.600+-0.058 RPD=1.59
+  lr=0.0002                   : R2=0.614+-0.039 RPD=1.61
+  lr=0.0001                   : R2=0.603+-0.046 RPD=1.59
+--- Optimizador ---
+  opt=nadam                   : R2=0.600+-0.058 RPD=1.59
+  opt=adam                    : R2=0.595+-0.053 RPD=1.58
+  opt=adamw                   : R2=0.608+-0.045 RPD=1.61
+--- Activacion ---
+  act=relu                    : R2=0.600+-0.058 RPD=1.59
+  act=elu                     : R2=0.618+-0.053 RPD=1.63
+  act=selu                    : R2=0.612+-0.057 RPD=1.62
+--- L2 ---
+  l2=0.01                     : R2=0.616+-0.035 RPD=1.62
+  l2=0.001                    : R2=0.600+-0.058 RPD=1.59
+  l2=0.0001                   : R2=0.605+-0.058 RPD=1.60
+  l2=0.0                      : R2=0.597+-0.054 RPD=1.59
+--- Objetivo ---
+  target=zscore               : R2=0.600+-0.058 RPD=1.59
+  target=log                  : R2=0.589+-0.056 RPD=1.57
+--- Entrada PCA ---
+  pca=0                       : R2=0.600+-0.058 RPD=1.59
+  pca=30                      : R2=0.627+-0.040 RPD=1.64
+  pca=50                      : R2=0.629+-0.043 RPD=1.65
+--- Batch size ---
+  batch=16                    : R2=0.601+-0.073 RPD=1.60
+  batch=32                    : R2=0.600+-0.058 RPD=1.59
+  batch=64                    : R2=0.594+-0.072 RPD=1.59
+DONE EXPLORA2

@@ -1,0 +1,5 @@
+2026-05-31 18:31:46 | INFO    | analyze | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_183146.log
+2026-05-31 18:31:46 | INFO    | analyze | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 18:32:45 | INFO    | analyze | Top 10 bandas (NIR): 1369nm, 1321nm, 2299nm, 1572nm, 1398nm, 1344nm, 1128nm, 2355nm, 1182nm, 2277nm
+2026-05-31 18:32:46 | INFO    | analyze | Reporte HTML generado: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html
+2026-05-31 18:32:46 | INFO    | analyze | Reporte: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html

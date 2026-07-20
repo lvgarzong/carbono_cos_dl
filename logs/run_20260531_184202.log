@@ -1,0 +1,6 @@
+2026-05-31 18:42:02 | INFO    | prep_lucas | Log file: logs\run_20260531_184202.log
+2026-05-31 18:42:02 | INFO    | prep_lucas | Leyendo espectros: lucas_fake_spectra.csv
+2026-05-31 18:42:02 | INFO    | prep_lucas | Detectadas 211 bandas: 400.0-2500.0 nm
+2026-05-31 18:42:02 | INFO    | prep_lucas | Uniendo por ID: espectros[PointID] <-> props[PointID]
+2026-05-31 18:42:02 | INFO    | prep_lucas | Espectros detectados como reflectancia (0-1) -> absorbancia
+2026-05-31 18:42:02 | INFO    | prep_lucas | Muestras validas tras limpieza: 600 (OC 2.0-149.9 g/kg, media 79.8)

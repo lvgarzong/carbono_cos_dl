@@ -1,0 +1,13 @@
+=== COMBINACIONES (TODAS, 5-fold CV) ===
+  PCA50 (mejor individual)          : R2=0.629+-0.043 RPD=1.65
+  PCA50+elu                         : R2=0.633+-0.059 RPD=1.67
+  PCA50+elu+lr2e-4                  : R2=0.636+-0.053 RPD=1.67
+  PCA50+elu+lr2e-4+L2_1e-2          : R2=0.637+-0.054 RPD=1.67
+  PCA50+elu+lr2e-4+L2_1e-2+adamw    : R2=0.637+-0.054 RPD=1.67
+  PCA50+elu+adamw                   : R2=0.630+-0.059 RPD=1.66
+  PCA30+elu+lr2e-4+L2_1e-2          : R2=0.631+-0.053 RPD=1.66
+
+-> MEJOR: PCA50+elu+lr2e-4+L2_1e-2 (R2=0.637)
+OOF final: {'r2': 0.635, 'rmse': 0.396, 'mae': 0.296, 'bias': 0.027, 'rpd': 1.656, 'rpiq': 2.3}
+figura actualizada: fig_mlp_mejorado_scatter.png
+DONE3

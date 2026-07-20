@@ -1,0 +1,18 @@
+2026-05-31 16:04:59 | INFO    | cos | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_160459.log
+2026-05-31 16:04:59 | INFO    | cos | >>> MODO SMOKE TEST <<<
+2026-05-31 16:04:59 | INFO    | cos | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 16:04:59 | INFO    | cos | ============================================================
+2026-05-31 16:04:59 | INFO    | cos | Iniciando rejilla: 1 experimentos
+2026-05-31 16:04:59 | INFO    | cos |   modelos=['SpectralNet']
+2026-05-31 16:04:59 | INFO    | cos |   rangos=['NIR']
+2026-05-31 16:04:59 | INFO    | cos |   preprocesados=['raw']
+2026-05-31 16:04:59 | INFO    | cos |   semillas=[0]  epocas=5
+2026-05-31 16:04:59 | INFO    | cos | ============================================================
+2026-05-31 16:04:59 | INFO    | cos | [1/1] NIR__SpectralNet__raw__seed0
+2026-05-31 16:05:00 | INFO    | cos | [SpectralNet|raw|seed=0] params=239579, train=546 val=117 test=118, bandas=486
+2026-05-31 16:05:11 | INFO    | cos | [SpectralNet|raw|seed=0] R2=0.014 RMSE=0.635 RPD=1.01 (11.9s)
+2026-05-31 16:05:11 | INFO    | cos | Rejilla terminada en 0.2 min. Resultados -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\all_results.csv
+2026-05-31 16:05:11 | INFO    | cos | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 16:06:35 | INFO    | cos | Top 10 bandas (NIR): 1385nm, 1613nm, 2355nm, 1663nm, 1128nm, 2063nm, 2154nm, 1837nm, 1309nm, 1264nm
+2026-05-31 16:06:35 | INFO    | cos | Reporte HTML generado: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html
+2026-05-31 16:06:35 | INFO    | cos | LISTO. Abre el reporte: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html

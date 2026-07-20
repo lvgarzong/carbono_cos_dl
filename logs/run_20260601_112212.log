@@ -1,0 +1,9 @@
+2026-06-01 11:22:12 | INFO    | transfer | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260601_112212.log
+2026-06-01 11:22:12 | INFO    | transfer | Dataset NIR cargado desde cache (781 muestras)
+2026-06-01 11:22:14 | INFO    | transfer | LUCAS: 15874 espectros (400-2500 nm) re-muestreados a 486 bandas; OC validos=15874
+2026-06-01 11:22:14 | INFO    | transfer | Preentrenando LucasVGG16 en LUCAS (15874 muestras)...
+2026-06-01 11:22:29 | INFO    | transfer | Afinando cabeza (cuerpo congelado)...
+2026-06-01 11:22:32 | INFO    | transfer | Afinamiento completo (lr bajo)...
+2026-06-01 11:22:40 | INFO    | transfer | ==================================================
+2026-06-01 11:22:40 | INFO    | transfer | TRANSFER LucasVGG16 (NIR) -> R2=0.203 RMSE=0.571 RPD=1.12
+2026-06-01 11:22:54 | INFO    | transfer | Guardado -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\transfer_NIR_LucasVGG16

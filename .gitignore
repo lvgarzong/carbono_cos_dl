@@ -1,0 +1,26 @@
+# ==== Datos (no se versionan: pesados y/o de terceros) ====
+# Los espectros y la bitácora se leen desde COS_DATA_ROOT (ver README).
+data/
+*.mat
+*.npz                 # cache de datasets y LUCAS preparado (regenerables)
+lucas_prepared.npz
+LUCAS*.csv
+
+# ==== Artefactos autogenerados ====
+results/              # métricas, predicciones, reporte_final.html (regenerables)
+cache/                # datasets .npz cacheados
+logs/                 # logs por ejecución
+
+# ==== Python ====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.env
+
+# ==== Sistema / editores ====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

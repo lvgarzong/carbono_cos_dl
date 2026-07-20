@@ -1,0 +1,16 @@
+2026-05-31 17:43:35 | INFO    | ensemble | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_174335.log
+2026-05-31 17:43:35 | INFO    | ensemble | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 17:43:35 | INFO    | ensemble | Ensamble en NIR/raw/median | todas | miembros=3 modelos x 3 semillas
+2026-05-31 17:44:03 | INFO    | ensemble |   miembro LucasVGG16_seed0 -> R2=0.451 RMSE=0.474 (73 ep)
+2026-05-31 17:44:27 | INFO    | ensemble |   miembro LucasVGG16_seed42 -> R2=0.363 RMSE=0.511 (58 ep)
+2026-05-31 17:45:01 | INFO    | ensemble |   miembro LucasVGG16_seed707 -> R2=0.387 RMSE=0.501 (81 ep)
+2026-05-31 17:45:44 | INFO    | ensemble |   miembro LucasResNet16_seed0 -> R2=0.417 RMSE=0.488 (143 ep)
+2026-05-31 17:46:16 | INFO    | ensemble |   miembro LucasResNet16_seed42 -> R2=0.399 RMSE=0.496 (112 ep)
+2026-05-31 17:46:55 | INFO    | ensemble |   miembro LucasResNet16_seed707 -> R2=0.336 RMSE=0.521 (150 ep)
+2026-05-31 17:47:24 | INFO    | ensemble |   miembro CompactCNN_seed0 -> R2=0.031 RMSE=0.630 (120 ep)
+2026-05-31 17:47:43 | INFO    | ensemble |   miembro CompactCNN_seed42 -> R2=-0.019 RMSE=0.646 (75 ep)
+2026-05-31 17:48:13 | INFO    | ensemble |   miembro CompactCNN_seed707 -> R2=0.063 RMSE=0.620 (122 ep)
+2026-05-31 17:48:13 | INFO    | ensemble | ==================================================
+2026-05-31 17:48:13 | INFO    | ensemble | ENSAMBLE (9 miembros) -> R2=0.382 RMSE=0.503 RPD=1.27 RPIQ=1.65
+2026-05-31 17:48:13 | INFO    | ensemble | ENSAMBLE solo LucasVGG16 -> R2=0.417 RMSE=0.489
+2026-05-31 17:48:13 | INFO    | ensemble | Resumen -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\ensemble_NIR_raw | filas de ensamble anexadas a all_results.csv

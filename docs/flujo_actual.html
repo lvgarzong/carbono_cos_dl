@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Análisis del código original — Estimación de COS</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>mermaid.initialize({startOnLoad:true, theme:'neutral'});</script>
+<style>
+ body{font-family:Segoe UI,Arial,sans-serif;margin:0;background:#f4f6f8;color:#222;line-height:1.55}
+ header{background:#5d4037;color:#fff;padding:28px 40px}
+ header h1{margin:0 0 6px}
+ section{background:#fff;margin:18px 40px;padding:20px 28px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+ h2{color:#5d4037;border-bottom:2px solid #eee;padding-bottom:8px}
+ code{background:#eee;padding:1px 5px;border-radius:4px;font-size:90%}
+ table{border-collapse:collapse;width:100%;font-size:14px;margin-top:10px}
+ th,td{border-bottom:1px solid #eee;padding:8px 10px;text-align:left;vertical-align:top}
+ th{background:#5d4037;color:#fff}
+ .bad{color:#c62828;font-weight:600}
+ .good{color:#2e7d32;font-weight:600}
+ .mermaid{background:#fafafa;border-radius:8px;padding:14px;text-align:center}
+ .pill{display:inline-block;background:#5d4037;color:#fff;border-radius:12px;padding:2px 10px;font-size:12px;margin-right:6px}
+</style>
+</head>
+<body>
+<header>
+ <h1>Análisis del código original (<code>carbono_machine_learning-main-ORIGINAL</code>)</h1>
+ <div>Flujo actual, problemas detectados y mapa hacia la versión mejorada</div>
+</header>
+
+<section>
+ <h2>1. Resumen</h2>
+ <p>El proyecto original estima Carbono Orgánico del Suelo (COS) a partir de firmas
+ espectrales VIS/NIR usando tres familias de modelos:
+ <span class="pill">LucasResNet_16</span><span class="pill">LucasVgg_16</span><span class="pill">LSTM (LSTMPaper)</span>
+ implementación directa del paper <i>Zhong et al. 2021 (Geoderma)</i> sobre la librería LUCAS.</p>
+ <p>Está organizado en múltiples scripts <code>main_*.py</code> (uno por experimento:
+ <code>main.py</code>, <code>main_VISNIR.py</code>, <code>main_fusion_adicional.py</code>, …),
+ cada uno con un <b>bucle de 9 niveles de <code>for</code> anidados</b> que recorre las
+ combinaciones de hiperparámetros. La lógica de datos vive en <code>functions.py</code>
+ (766 líneas) y <code>load_full_data.py</code>.</p>
+</section>
+
+<section>
+ <h2>2. Flujo de datos original</h2>
+ <div class="mermaid">
+flowchart TD
+    A[".mat VIS/NIR<br/>(114 réplicas × 2048/512)"] --> B["get_data()<br/>lee h5py/loadmat + normaliza"]
+    X["Bitácora .xlsx<br/>custom_cleaning() → min-max de T_Dicro"] --> C
+    B --> P["preprocess() / augment_pm_std()<br/>media/mediana/±β·std/region×4"]
+    P --> C["get_only_data_main()<br/>concatena por muestra (axis=2)"]
+    C --> T1["transpose(2,0,1)"]
+    T1 --> Z["zscore(axis=2)"]
+    Z --> S["train_test_split (×2)<br/>random_state fijo=976"]
+    S --> T2["transpose(0,2,1)<br/>+ augment_data() de nuevo"]
+    T2 --> R["reshape a (N,1,L,1)<br/>tf.data.Dataset"]
+    R --> M["Modelo (subclassing)<br/>Conv2D kernel (1,k)"]
+    M --> F["model.fit (300 épocas)"]
+    F --> W["load_weights('model_best.h5')"]
+    W --> E["evaluate + best_scores.csv"]
+ </div>
+</section>
+
+<section>
+ <h2>3. Arquitectura de archivos</h2>
+ <table>
+  <tr><th>Archivo</th><th>Rol</th><th>Líneas</th></tr>
+  <tr><td><code>main.py</code> y variantes <code>main_*.py</code></td><td>Bucles de experimentos (uno por escenario)</td><td>~230-280 c/u</td></tr>
+  <tr><td><code>functions.py</code></td><td>Carga, preprocesado, augment, métricas, split</td><td>766</td></tr>
+  <tr><td><code>load_full_data.py</code></td><td>Generador de datos alterno (DataGenerator)</td><td>331</td></tr>
+  <tr><td><code>models/models.py</code></td><td>LucasResNet_16, LucasVgg_16, LSTM, LSTMPaper (duplicado)</td><td>399</td></tr>
+  <tr><td><code>callbacks.py</code></td><td>Callbacks de Keras (checkpoint, tensorboard)</td><td>136</td></tr>
+  <tr><td><code>plot_results.py</code>, <code>plot_uncertainty.py</code></td><td>Gráficas post-hoc (matplotlib + LaTeX)</td><td>347 / 335</td></tr>
+ </table>
+</section>
+
+<section>
+ <h2>4. Problemas detectados (por qué "no corre" hoy)</h2>
+ <table>
+  <tr><th>#</th><th>Problema</th><th>Impacto</th></tr>
+  <tr><td>1</td><td class="bad"><code>import tensorflow_addons as tfa</code></td><td>tfa fue <b>descontinuado</b> y no instala en TF 2.16+. Rompe <code>RSquare</code> y <code>F1Score</code> → el código no arranca.</td></tr>
+  <tr><td>2</td><td class="bad">Pesos en <code>model_best.h5</code></td><td>Keras 3 (TF 2.16+) ya no carga ese formato para modelos <i>subclassed</i> sin <code>build</code> explícito → error al recargar.</td></tr>
+  <tr><td>3</td><td class="bad">9 bucles <code>for</code> anidados + código duplicado en cada <code>main_*.py</code></td><td>Imposible de mantener; cambiar un parámetro obliga a editar varios archivos.</td></tr>
+  <tr><td>4</td><td class="bad">Doble <code>augment_data</code> + transposiciones múltiples</td><td>Pipeline frágil y difícil de depurar; fácil mezclar ejes.</td></tr>
+  <tr><td>5</td><td class="bad">Conv2D con kernels <code>(1,k)</code> sobre datos <code>(N,1,L,1)</code></td><td>Es un CNN 1D disfrazado de 2D → más memoria y confusión.</td></tr>
+  <tr><td>6</td><td class="bad">Split <b>sin conjunto de validación independiente real</b> y <code>random_state</code> fijo</td><td>Riesgo de fuga/optimismo; métricas poco robustas (una sola partición).</td></tr>
+  <tr><td>7</td><td class="bad">Objetivo normalizado min-max y salida <code>relu</code>/<code>sigmoid</code></td><td>Limita el rango de predicción y dificulta interpretar RMSE en % reales.</td></tr>
+  <tr><td>8</td><td class="bad"><code>LSTMPaper</code> definido <b>dos veces</b> (la 2ª pisa la 1ª)</td><td>Confusión sobre qué arquitectura se usa.</td></tr>
+  <tr><td>9</td><td class="bad">Rutas absolutas <code>D:\Data</code> y métricas sin RPD/RPIQ</td><td>No portable; faltan métricas estándar de espectroscopía de suelos.</td></tr>
+ </table>
+</section>
+
+<section>
+ <h2>5. Lo que estaba bien (se conserva)</h2>
+ <ul>
+  <li class="good">Implementación fiel de LucasResNet-16 / LucasVGG-16 del paper.</li>
+  <li class="good">Recorte de bandas ruidosas (<code>wavelengths2cut</code>) y blacklist de muestras.</li>
+  <li class="good">Idea de comparar rangos (VIS/NIR/VISNIR) y preprocesados.</li>
+  <li class="good">Uso de Nadam, batch 32, lr 1e-4/5e-4 (coherente con el paper).</li>
+ </ul>
+</section>
+
+<section>
+ <h2>6. Mapa al código mejorado</h2>
+ <table>
+  <tr><th>Original</th><th>Nuevo</th></tr>
+  <tr><td>9 <code>main_*.py</code> con bucles</td><td><code>config.py</code> + <code>experiment_runner.py</code> (rejilla única, robusta a fallos)</td></tr>
+  <tr><td><code>functions.py</code> (766 L, todo mezclado)</td><td><code>data_loader.py</code> + <code>preprocessing.py</code> + <code>metrics.py</code> separados</td></tr>
+  <tr><td><code>tfa.metrics.RSquare</code></td><td><code>metrics.RSquare</code> (Keras 3 puro) + R²/RMSE/MAE/RPD/RPIQ</td></tr>
+  <tr><td>Conv2D <code>(1,k)</code> sobre <code>(N,1,L,1)</code></td><td><code>Conv1D</code> sobre <code>(N,L,1)</code> (más limpio y rápido)</td></tr>
+  <tr><td>Modelos <i>subclassed</i> + <code>.h5</code></td><td>API funcional + <code>.keras</code> (carga fiable, summary, saliencia)</td></tr>
+  <tr><td>Sin importancia de bandas</td><td><code>wavelength_analysis.py</code> (saliencia + permutación)</td></tr>
+  <tr><td>Gráficas dispersas matplotlib+LaTeX</td><td><code>report.py</code> → un HTML interactivo (Plotly)</td></tr>
+  <tr><td>Split único</td><td>Split estratificado 70/15/15 + múltiples semillas</td></tr>
+ </table>
+</section>
+
+</body>
+</html>

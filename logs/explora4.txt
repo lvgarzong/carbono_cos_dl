@@ -1,0 +1,10 @@
+=== (A) MLP optimizado por rango (5-fold CV, OOF) ===
+  VIS    : R2=0.132 RMSE=0.610 RPD=1.07 RPIQ=1.49
+  NIR    : R2=0.635 RMSE=0.396 RPD=1.66 RPIQ=2.30
+  VISNIR : R2=0.279 RMSE=0.556 RPD=1.18 RPIQ=1.64
+
+=== (B) Ensamble de semillas (NIR) ===
+  1 semilla(s): R2=0.635 RMSE=0.396 RPD=1.66 RPIQ=2.30
+  3 semilla(s): R2=0.637 RMSE=0.395 RPD=1.66 RPIQ=2.31
+  5 semilla(s): R2=0.640 RMSE=0.393 RPD=1.67 RPIQ=2.31
+DONE4

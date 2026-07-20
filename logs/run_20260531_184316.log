@@ -1,0 +1,9 @@
+2026-05-31 18:43:16 | INFO    | transfer | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_184316.log
+2026-05-31 18:43:16 | INFO    | transfer | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 18:43:16 | INFO    | transfer | LUCAS: 600 espectros (400-2500 nm) re-muestreados a 486 bandas; OC validos=600
+2026-05-31 18:43:16 | INFO    | transfer | Preentrenando LucasResNet16 en LUCAS (600 muestras)...
+2026-05-31 18:43:23 | INFO    | transfer | Afinando cabeza (cuerpo congelado)...
+2026-05-31 18:43:26 | INFO    | transfer | Afinamiento completo (lr bajo)...
+2026-05-31 18:43:37 | INFO    | transfer | ==================================================
+2026-05-31 18:43:37 | INFO    | transfer | TRANSFER LucasResNet16 (NIR) -> R2=0.025 RMSE=0.632 RPD=1.01
+2026-05-31 18:43:37 | INFO    | transfer | Guardado -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\transfer_NIR_LucasResNet16

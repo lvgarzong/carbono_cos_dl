@@ -1,0 +1,36 @@
+Muestras: todas=781 | hasta 640=601
+
+================ (a) 640 vs TODAS (NIR, sg1, 5-fold CV) ================
+  MLP_improved TODAS : R2=0.603+-0.050 RMSE=0.412 RPD=1.60
+  SVR-RBF      TODAS : R2=0.499+-0.072 RPD=1.42
+  MLP_improved <=640 : R2=0.549+-0.057 RMSE=0.425 RPD=1.50
+  SVR-RBF      <=640 : R2=0.483+-0.076 RPD=1.40
+
+================ (b) BUSQUEDA MLP en <=640 (5-fold CV) ================
+--- b1: preprocesamiento (arch 128-64-32, drop 0.4, 200 ep) ---
+  prep=raw     : R2=0.094+-0.054 RPD=1.05
+  prep=snv     : R2=0.577+-0.023 RPD=1.54
+  prep=sg1     : R2=0.549+-0.057 RPD=1.50
+  prep=sg2     : R2=0.419+-0.056 RPD=1.32
+  prep=sg1_snv : R2=0.589+-0.038 RPD=1.56
+  -> mejor prep: sg1_snv (R2=0.589)
+--- b2: arquitectura (prep=sg1_snv, drop 0.4, 200 ep) ---
+  arch=(64, 32)            : R2=0.582+-0.049 RPD=1.55
+  arch=(128, 64, 32)       : R2=0.589+-0.038 RPD=1.56
+  arch=(256, 128, 64)      : R2=0.607+-0.033 RPD=1.60
+  arch=(256, 128, 64, 32)  : R2=0.599+-0.018 RPD=1.58
+  arch=(512, 256, 128)     : R2=0.588+-0.043 RPD=1.57
+  -> mejor arch: (256, 128, 64) (R2=0.607)
+--- b3: dropout y epocas (prep=sg1_snv, arch=(256, 128, 64)) ---
+  drop=0.3 ep=200: R2=0.590+-0.045 RPD=1.57
+  drop=0.3 ep=400: R2=0.572+-0.049 RPD=1.54
+  drop=0.4 ep=200: R2=0.607+-0.033 RPD=1.60
+  drop=0.4 ep=400: R2=0.596+-0.026 RPD=1.58
+  drop=0.5 ep=200: R2=0.604+-0.016 RPD=1.59
+  drop=0.5 ep=400: R2=0.596+-0.022 RPD=1.58
+  -> mejor (drop,ep): (0.4, 200) (R2=0.607)
+
+================ RESUMEN MEJOR MLP ================
+  Mejor config en <=640: prep=sg1_snv, arch=(256, 128, 64), drop=0.4, ep=200 -> R2=0.607
+  Misma config en TODAS: R2=0.618+-0.043 RPD=1.63
+DONE EXPLORA

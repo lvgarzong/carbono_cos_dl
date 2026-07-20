@@ -1,0 +1,32 @@
+2026-05-31 16:07:03 | INFO    | cos | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_160703.log
+2026-05-31 16:07:05 | INFO    | cos | Etiquetas COS validas: 820 (min=0.45 max=5.17 media=1.82)
+2026-05-31 16:07:05 | INFO    | cos | [VIS] archivos=971, en comun con etiquetas (sin blacklist)=781
+2026-05-31 16:07:20 | INFO    | cos | [VIS] dataset -> X(781, 1502) y(781,), bandas 401.3-910.8 nm
+2026-05-31 16:07:20 | INFO    | cos | [NIR] archivos=971, en comun con etiquetas (sin blacklist)=781
+2026-05-31 16:07:24 | INFO    | cos | [NIR] dataset -> X(781, 486) y(781,), bandas 917.1-2448.7 nm
+2026-05-31 16:07:24 | INFO    | cos | [VISNIR] fusion -> X(781, 1988) (VIS 1502 + NIR 486 bandas), 781 muestras
+2026-05-31 16:07:24 | INFO    | cos | Dataset VISNIR cacheado en C:\Users\lvgar\Music\COS\carbono_cos_dl\cache\dataset_VISNIR_median.npz
+2026-05-31 16:07:24 | INFO    | cos | ============================================================
+2026-05-31 16:07:24 | INFO    | cos | Iniciando rejilla: 4 experimentos
+2026-05-31 16:07:24 | INFO    | cos |   modelos=['LucasResNet16', 'LucasVGG16', 'LSTMPaper', 'SpectralNet']
+2026-05-31 16:07:24 | INFO    | cos |   rangos=['VISNIR']
+2026-05-31 16:07:24 | INFO    | cos |   preprocesados=['raw']
+2026-05-31 16:07:24 | INFO    | cos |   semillas=[0]  epocas=2
+2026-05-31 16:07:24 | INFO    | cos | ============================================================
+2026-05-31 16:07:24 | INFO    | cos | [1/4] VISNIR__LucasResNet16__raw__seed0
+2026-05-31 16:07:24 | INFO    | cos | [LucasResNet16|raw|seed=0] params=1218529, train=546 val=117 test=118, bandas=1988
+2026-05-31 16:07:31 | INFO    | cos | [LucasResNet16|raw|seed=0] R2=0.025 RMSE=0.632 RPD=1.01 (7.5s)
+2026-05-31 16:07:31 | INFO    | cos | [2/4] VISNIR__LucasVGG16__raw__seed0
+2026-05-31 16:07:32 | INFO    | cos | [LucasVGG16|raw|seed=0] params=659107, train=546 val=117 test=118, bandas=1988
+2026-05-31 16:07:39 | INFO    | cos | [LucasVGG16|raw|seed=0] R2=0.026 RMSE=0.631 RPD=1.01 (7.0s)
+2026-05-31 16:07:39 | INFO    | cos | [3/4] VISNIR__LSTMPaper__raw__seed0
+2026-05-31 16:07:39 | INFO    | cos | [LSTMPaper|raw|seed=0] params=140417, train=546 val=117 test=118, bandas=1988
+2026-05-31 16:07:47 | INFO    | cos | [LSTMPaper|raw|seed=0] R2=0.037 RMSE=0.628 RPD=1.02 (8.1s)
+2026-05-31 16:07:47 | INFO    | cos | [4/4] VISNIR__SpectralNet__raw__seed0
+2026-05-31 16:07:47 | INFO    | cos | [SpectralNet|raw|seed=0] params=239579, train=546 val=117 test=118, bandas=1988
+2026-05-31 16:08:04 | INFO    | cos | [SpectralNet|raw|seed=0] R2=-0.004 RMSE=0.641 RPD=1.00 (17.3s)
+2026-05-31 16:08:04 | INFO    | cos | Rejilla terminada en 0.7 min. Resultados -> C:\Users\lvgar\Music\COS\carbono_cos_dl\results\all_results.csv
+2026-05-31 16:08:04 | INFO    | cos | Dataset VISNIR cargado desde cache (781 muestras)
+2026-05-31 16:10:07 | INFO    | cos | Top 10 bandas (VISNIR): 2082nm, 2389nm, 1736nm, 2339nm, 2227nm, 2205nm, 2433nm, 1686nm, 2060nm, 2038nm
+2026-05-31 16:10:08 | INFO    | cos | Reporte HTML generado: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html
+2026-05-31 16:10:08 | INFO    | cos | LISTO. Abre el reporte: C:\Users\lvgar\Music\COS\carbono_cos_dl\results\reporte_final.html

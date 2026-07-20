@@ -1,0 +1,23 @@
+2026-05-31 16:20:58 | INFO    | baselines | Log file: C:\Users\lvgar\Music\COS\carbono_cos_dl\logs\run_20260531_162058.log
+2026-05-31 16:20:58 | INFO    | baselines | Dataset VIS cargado desde cache (781 muestras)
+2026-05-31 16:21:07 | INFO    | baselines | [PLSR|VIS|raw] R2=0.184 RMSE=0.578 RPD=1.11
+2026-05-31 16:22:06 | INFO    | baselines | [RF|VIS|raw] R2=0.105 RMSE=0.605 RPD=1.06
+2026-05-31 16:22:25 | INFO    | baselines | [SVR|VIS|raw] R2=0.151 RMSE=0.589 RPD=1.09
+2026-05-31 16:22:43 | INFO    | baselines | [PLSR|VIS|sg1] R2=0.042 RMSE=0.626 RPD=1.02
+2026-05-31 16:23:49 | INFO    | baselines | [RF|VIS|sg1] R2=0.070 RMSE=0.617 RPD=1.04
+2026-05-31 16:24:02 | INFO    | baselines | [SVR|VIS|sg1] R2=0.066 RMSE=0.618 RPD=1.03
+2026-05-31 16:24:02 | INFO    | baselines | Dataset NIR cargado desde cache (781 muestras)
+2026-05-31 16:24:10 | INFO    | baselines | [PLSR|NIR|raw] R2=0.363 RMSE=0.511 RPD=1.25
+2026-05-31 16:24:42 | INFO    | baselines | [RF|NIR|raw] R2=0.063 RMSE=0.619 RPD=1.03
+2026-05-31 16:24:51 | INFO    | baselines | [SVR|NIR|raw] R2=0.348 RMSE=0.517 RPD=1.24
+2026-05-31 16:24:59 | INFO    | baselines | [PLSR|NIR|sg1] R2=0.378 RMSE=0.505 RPD=1.27
+2026-05-31 16:25:25 | INFO    | baselines | [RF|NIR|sg1] R2=0.293 RMSE=0.538 RPD=1.19
+2026-05-31 16:25:31 | INFO    | baselines | [SVR|NIR|sg1] R2=0.417 RMSE=0.489 RPD=1.31
+2026-05-31 16:25:31 | INFO    | baselines | Dataset VISNIR cargado desde cache (781 muestras)
+2026-05-31 16:25:48 | INFO    | baselines | [PLSR|VISNIR|raw] R2=0.317 RMSE=0.529 RPD=1.21
+2026-05-31 16:27:09 | INFO    | baselines | [RF|VISNIR|raw] R2=0.181 RMSE=0.579 RPD=1.10
+2026-05-31 16:27:20 | INFO    | baselines | [SVR|VISNIR|raw] R2=0.278 RMSE=0.544 RPD=1.18
+2026-05-31 16:27:32 | INFO    | baselines | [PLSR|VISNIR|sg1] R2=0.233 RMSE=0.561 RPD=1.14
+2026-05-31 16:29:01 | INFO    | baselines | [RF|VISNIR|sg1] R2=0.286 RMSE=0.541 RPD=1.18
+2026-05-31 16:29:12 | INFO    | baselines | [SVR|VISNIR|sg1] R2=0.382 RMSE=0.503 RPD=1.27
+2026-05-31 16:29:12 | INFO    | baselines | Baselines anexados a C:\Users\lvgar\Music\COS\carbono_cos_dl\results\classical_results.csv
