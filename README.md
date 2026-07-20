@@ -60,7 +60,7 @@ $env:COS_DATA_ROOT = "D:\ruta\a\los\datos"
 ## 2. Instalación
 
 ```bash
-git clone [<url-del-repositorio>](https://github.com/lvgarzong/carbono_cos_dl.git)
+git clone https://github.com/lvgarzong/carbono_cos_dl.git
 cd carbono_cos_dl
 python -m venv .venv
 .venv\Scripts\activate          # Windows   (source .venv/bin/activate en Linux/Mac)
